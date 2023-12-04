@@ -1,0 +1,8 @@
+1 v 1
+2 v 2
+3 v 3
+
+No rating; casual matches
+No rewards
+
+All players have preset gear (all equal gear)

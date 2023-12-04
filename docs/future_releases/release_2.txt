@@ -1,0 +1,4 @@
+[ ] add attacks 2 & 3
+[ ] add racial ability
+[ ] create talents
+[ ] edit spells

@@ -1,0 +1,6 @@
+[X] add enemies
+[ ] update pixel (UP & DOWN)
+    [ ] animations for up & down
+[X] implement basic attack
+[ ] create range animations (key for circle, click to disappear)
+[X] track health

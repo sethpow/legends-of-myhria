@@ -1,0 +1,57 @@
+*.exe
+*.dsym
+main
+launch
+.DS_Store
+.vscode/
+
+
+
+# Ignore build artifacts
+build/
+bin/
+*.exe
+*.out
+*.o
+*.obj
+
+# Ignore temporary files
+*.tmp
+*.log
+
+# Ignore generated files
+makefile
+CMakeLists.txt.user
+CMakeFiles/
+
+# Ignore IDE-specific files
+.vscode
+*.suo
+*.user
+*.sdf
+*.opensdf
+*.cbp
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.suo
+*.tlog/
+*.log/
+*.bin/
+*.exe/
+*.pdb/
+*.ilk/
+*.aps
+*.ncb
+*.opendb
+*.opensdf
+*.sdf
+*.cachefile
+*.vc.db
+*.VC.db
+*.dbmdl
+
+# Ignore dependencies
+lib
+vendor

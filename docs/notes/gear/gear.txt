@@ -1,0 +1,9 @@
+Levels 1-49
+    Common
+    Unique
+    Scarce
+
+Level 50
+    Tier I
+    Tier II
+    Tier III

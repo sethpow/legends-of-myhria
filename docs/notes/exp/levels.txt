@@ -1,0 +1,61 @@
+Level    | Exp to reach level
+-----------------------------
+    1    |    
+    2    |     300
+    3    |     450
+    4    |     600
+    5    |     750
+    6    |     900
+    7    |     1050
+    8    |     1200
+    9    |     1350
+    10   |     1500
+    11   |     1650
+    12   |     1800
+    13   |     1950
+    14   |     2100
+    15   |     2250
+    16   |     2400
+    17   |     2550
+    18   |     2700
+    19   |     2850
+    20   |     3000
+    21   |     3150
+    22   |     3300
+    23   |     3450
+    24   |     3600
+    25   |     3750
+    26   |     3900
+    27   |     4050
+    28   |     4200
+    29   |     4350
+    30   |     4500
+    31   |     4650
+    32   |     4800
+    33   |     4950
+    34   |     5100
+    35   |     5250
+    36   |     5400
+    37   |     5550
+    38   |     5700
+    39   |     5850
+    40   |     6000
+    41   |     6150
+    42   |     6300
+    43   |     6450
+    44   |     6600
+    45   |     6750
+    46   |     6900
+    47   |     7050
+    48   |     7200
+    49   |     7350
+    50   |     7500
+
+Total: 191100
+
+It would take you approximately 38.22 hours to earn 191,100 XP at a rate of 5,000 XP per hour
+You earn approximately 83.33 experience points per minute when earning 5,000 XP per hour.
+
+Exp from monsters & quests will equate to 75-100 exp per minute.
+
+At 6,000 XP per hour (100 exp per minute), it would take approximately 31.85 hours to earn 191,100 XP (Level 50)
