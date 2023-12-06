@@ -59,6 +59,9 @@ int main()
     InitWindow(windowWidth, windowHeight, "Game OFF 2023");
     SetWindowPosition(100, 100); // where window appears on screen
 
+    Vector2 circlePosition = { (float)windowWidth / 2, (float)windowHeight / 2 };
+    bool drawCircle = false;
+
     // map
     Texture2D ptrMap = LoadTexture("assets/map_tileset/ptr.png");
     Vector2 mapPos = { 0.0, 0.0 };
@@ -534,6 +537,20 @@ int main()
 
                     // draw character
                     knight.tick(GetFrameTime());
+                    if (IsKeyDown(KEY_ONE))
+                    {
+                        DrawText("1 PRESSED", GetDisplayWidth()/3, 50, 25, RAYWHITE);
+                        drawCircle = true;
+                        circlePosition = GetMousePosition();
+                    }
+                    if (IsKeyReleased(KEY_TWO))
+                    {
+                        drawCircle = false;
+                    }
+                    if (drawCircle)
+                    {
+                        DrawCircleV(circlePosition, 30, RED);
+                    }
 
                     // // out of bounds
                     // if (knight.getWorldPos().x < 0.0 ||
@@ -625,7 +642,6 @@ int main()
                         {
                             DrawText("Racial Ability", GetDisplayWidth()/3, 50, 25, RAYWHITE);
                         }
-
                         if (showPausedText > 0.0)
                         {
                             showPausedText -= 1;
