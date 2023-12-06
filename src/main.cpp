@@ -131,10 +131,10 @@ int main()
     float showPausedText = 180.0;
 
     // buttons
-    Button PTRButton(100, 200, 200, 50, "LOAD PTR");
+    Button PTRButton(100, 200, 200, 50, "PTR");
     Button loadGameMenuButton(400, 200, 200, 50, "New/Load Game");
     Button newGameButton(550, 450, 200, 50, "New Game");
-    Button createButton(550, 550, 200, 50, "Create!");
+    Button createButton(550, 550, 200, 50, "Create Character");
     Button loadGameButton(550, 160, 200, 50, "Load Game");
     Button controlsButton(100, 300, 200, 50, "Controls");
     Button instructionsButton(400, 300, 200, 50, "Instructions");
