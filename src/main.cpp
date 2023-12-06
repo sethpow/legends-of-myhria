@@ -4,62 +4,19 @@
 #include "raymath.h"
 #include "Button.h"
 #include "Character.h"
+#include "Dummy.h"
 #include "Enemy.h"
 #include "Prop.h"
 #include "Powerup.h"
-#include "Dummy.h"
+#include "WindowDetails.h"
 
-
-int GetDisplayWidth()
-{
-    if (IsWindowFullscreen())
-    {
-        return GetMonitorWidth(GetCurrentMonitor());
-    }
-    else
-    {
-        return GetScreenWidth();
-    }
-}
-
-int GetDisplayHeight()
-{
-    if (IsWindowFullscreen())
-    {
-        return GetMonitorHeight(GetCurrentMonitor());
-    }
-    else
-    {
-        return GetScreenHeight();
-    }
-}
-
-void ToggleFullScreenWindow(int windowWidth, int windowHeight)
-{
-    if (!IsWindowFullscreen())
-    {
-        // int monitor = GetCurrentMonitor();
-        // SetWindowSize(GetMonitorWidth(monitor), GetMonitorHeight(monitor));
-        // GetDisplayWidth();
-        // GetDisplayHeight();
-        ToggleFullscreen();
-    }
-    else
-    {
-        ToggleFullscreen();
-        // SetWindowSize(windowWidth, windowHeight);
-    }
-}
 
 int main()
 {
     // window
-    int windowWidth = 800;
-    int windowHeight = 600;
-    InitWindow(windowWidth, windowHeight, "Game OFF 2023");
-    SetWindowPosition(100, 100); // where window appears on screen
+    WindowDetails window{800, 600};
 
-    Vector2 circlePosition = { (float)windowWidth / 2, (float)windowHeight / 2 };
+    Vector2 circlePosition = { (float)window.getWindowWidth() / 2, (float)window.getWindowHeight() / 2 };
     bool drawCircle = false;
 
     // map
@@ -68,7 +25,7 @@ int main()
     const float mapScale = 2.0;
 
     // character
-    Character knight{windowWidth, windowHeight};
+    Character knight{window.getWindowWidth(), window.getWindowHeight()};
 
     Enemy goblin1{
         Vector2{1000.f, 450.f},
@@ -144,7 +101,7 @@ int main()
     {
         if (IsKeyPressed(KEY_F1))
         {
-            ToggleFullScreenWindow(windowWidth, windowHeight);
+            window.ToggleFullScreenWindow(window.getWindowWidth(), window.getWindowHeight());
         }
         if(isInMenu)
         {
@@ -391,8 +348,8 @@ int main()
                     // out of bounds
                     if (knight.getWorldPos().x < 0.0 ||
                         knight.getWorldPos().y < 0.0 ||
-                        knight.getWorldPos().x + windowWidth > ptrMap.width * mapScale || 
-                        knight.getWorldPos().y + windowHeight > ptrMap.height * mapScale)
+                        knight.getWorldPos().x + window.getWindowWidth() > ptrMap.width * mapScale || 
+                        knight.getWorldPos().y + window.getWindowHeight() > ptrMap.height * mapScale)
                     {
                         // if hitting wall, reset worldPos to last frame
                         knight.undoMovement();
@@ -443,28 +400,28 @@ int main()
                                     knight.setScore(knight.getScore() + 1);
                                 }
                             }
-                            DrawText("Ability 1", GetDisplayWidth()/3, 50, 25, RAYWHITE);
+                            DrawText("Ability 1", window.GetDisplayWidth()/3, 50, 25, RAYWHITE);
                         }
                         // else if (IsMouseButtonPressed(MOUSE_RIGHT_BUTTON))
                         else if (IsMouseButtonDown(MOUSE_RIGHT_BUTTON))
                         {
                             // draw knight healing animation
-                            DrawText("Ability 2", GetDisplayWidth()/3, 50, 25, RAYWHITE);
+                            DrawText("Ability 2", window.GetDisplayWidth()/3, 50, 25, RAYWHITE);
                             knight.drawHealing(true);
                         }
                         else if (IsMouseButtonPressed(MOUSE_MIDDLE_BUTTON))
                         {
-                            DrawText("Ability 3", GetDisplayWidth()/3, 50, 25, RAYWHITE);
+                            DrawText("Ability 3", window.GetDisplayWidth()/3, 50, 25, RAYWHITE);
                         }
                         else if (IsKeyPressed(KEY_TAB))
                         {
-                            DrawText("Racial Ability", GetDisplayWidth()/3, 50, 25, RAYWHITE);
+                            DrawText("Racial Ability", window.GetDisplayWidth()/3, 50, 25, RAYWHITE);
                         }
 
                         if (showPausedText > 0.0)
                         {
                             showPausedText -= 1;
-                            DrawText("P - Pause Game", GetDisplayWidth()/3, 50, 25, RAYWHITE);
+                            DrawText("P - Pause Game", window.GetDisplayWidth()/3, 50, 25, RAYWHITE);
                         }
                     }
 
@@ -539,7 +496,7 @@ int main()
                     knight.tick(GetFrameTime());
                     if (IsKeyDown(KEY_ONE))
                     {
-                        DrawText("1 PRESSED", GetDisplayWidth()/3, 50, 25, RAYWHITE);
+                        DrawText("1 PRESSED", window.GetDisplayWidth()/3, 50, 25, RAYWHITE);
                         drawCircle = true;
                         circlePosition = GetMousePosition();
                     }
@@ -555,8 +512,8 @@ int main()
                     // // out of bounds
                     // if (knight.getWorldPos().x < 0.0 ||
                     //     knight.getWorldPos().y < 0.0 ||
-                    //     knight.getWorldPos().x + windowWidth > ptrMap.width * mapScale || 
-                    //     knight.getWorldPos().y + windowHeight > ptrMap.height * mapScale)
+                    //     knight.getWorldPos().x + window.getWindowWidth() > ptrMap.width * mapScale || 
+                    //     knight.getWorldPos().y + window.getWindowHeight() > ptrMap.height * mapScale)
                     // {
                     //     // if hitting wall, reset worldPos to last frame
                     //     knight.undoMovement();
@@ -625,35 +582,35 @@ int main()
                                     healDummy.setHealth(healDummy.getHealth() + 0.5f);
                                 }
                             }
-                            DrawText("Ability 1", GetDisplayWidth()/3, 50, 25, RAYWHITE);
+                            DrawText("Ability 1", window.GetDisplayWidth()/3, 50, 25, RAYWHITE);
                         }
                         // else if (IsMouseButtonPressed(MOUSE_RIGHT_BUTTON))
                         else if (IsMouseButtonDown(MOUSE_RIGHT_BUTTON))
                         {
                             // draw knight healing animation
-                            DrawText("Ability 2", GetDisplayWidth()/3, 50, 25, RAYWHITE);
+                            DrawText("Ability 2", window.GetDisplayWidth()/3, 50, 25, RAYWHITE);
                             knight.drawHealing(true);
                         }
                         else if (IsMouseButtonPressed(MOUSE_MIDDLE_BUTTON))
                         {
-                            DrawText("Ability 3", GetDisplayWidth()/3, 50, 25, RAYWHITE);
+                            DrawText("Ability 3", window.GetDisplayWidth()/3, 50, 25, RAYWHITE);
                         }
                         else if (IsKeyPressed(KEY_TAB))
                         {
-                            DrawText("Racial Ability", GetDisplayWidth()/3, 50, 25, RAYWHITE);
+                            DrawText("Racial Ability", window.GetDisplayWidth()/3, 50, 25, RAYWHITE);
                         }
                         if (showPausedText > 0.0)
                         {
                             showPausedText -= 1;
-                            DrawText("P - Pause Game", GetDisplayWidth()/3, 50, 25, RAYWHITE);
+                            DrawText("P - Pause Game", window.GetDisplayWidth()/3, 50, 25, RAYWHITE);
                         }
                     }
                 }
             }
             else
             {
-                DrawRectangle(GetDisplayWidth()/5, GetDisplayHeight()/5, GetDisplayWidth()/2, GetDisplayHeight()/2, LIGHTGRAY);
-                DrawText("Paused", GetDisplayWidth()/5, GetDisplayHeight()/5, 75, RAYWHITE);
+                DrawRectangle(window.GetDisplayWidth()/5, window.GetDisplayHeight()/5, window.GetDisplayWidth()/2, window.GetDisplayHeight()/2, LIGHTGRAY);
+                DrawText("Paused", window.GetDisplayWidth()/5, window.GetDisplayHeight()/5, 75, RAYWHITE);
                 DrawText("BACKSPACE - Return to Menu", 100, 550, 40, RAYWHITE);
                 if (IsKeyPressed(KEY_BACKSPACE))
                 {
